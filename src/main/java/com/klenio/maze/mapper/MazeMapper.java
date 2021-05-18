@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.ExecutionException;
 
 @Component
 public class MazeMapper {
@@ -14,8 +15,12 @@ public class MazeMapper {
         Maze maze = new Maze();
         Scanner scanner = new Scanner(mazeDto);
         String xy = scanner.nextLine();
-        maze.setMaxX(Integer.parseInt(xy.split(",")[0]));
-        maze.setMaxY(Integer.parseInt(xy.split(",")[1]));
+        try {
+            maze.setMaxX(Integer.parseInt(xy.split(",")[0]));
+            maze.setMaxY(Integer.parseInt(xy.split(",")[1]));
+        } catch (Exception ex) {
+            throw new IncorrectDataExeption("incorrect input data");
+        }
         int x = 0;
         int y = 0;
         List<Integer> check = new ArrayList<>();
