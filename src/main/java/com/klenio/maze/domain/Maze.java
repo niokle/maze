@@ -22,4 +22,8 @@ public class Maze {
         Position position = positionList.stream().filter(p -> p.getX() == x && p.getY() == y).findFirst().orElse(null);
         return position == null ? null : position.getMazeWallOrRoad();
     }
+
+    public Position getPositionByXY(int x, int y) {
+        return positionList.stream().filter(p -> p.getX() == x && p.getY() == y).findFirst().orElse(null);
+    }
 }
