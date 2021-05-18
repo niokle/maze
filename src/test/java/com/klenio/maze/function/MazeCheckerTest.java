@@ -51,7 +51,7 @@ class MazeCheckerTest {
         maze.addPosition(new Position(2, 6, 1));
         maze.addPosition(new Position(3, 6, 1));
         maze.addPosition(new Position(4, 6, 1));
-        MazeChecker mazeService = new MazeChecker(maze);
+        MazeChecker mazeChecker = new MazeChecker(maze);
         //todo
         /*
         00000
@@ -64,13 +64,13 @@ class MazeCheckerTest {
         */
         //when
         Position startPosition1 = maze.getPositionByXY(0, 0);
-        List<Position> leftRightUpDownPositions1 = mazeService.getLeftRightUpDown(startPosition1);
+        List<Position> leftRightUpDownPositions1 = mazeChecker.getLeftRightUpDown(startPosition1);
         Position startPosition2 = maze.getPositionByXY(0, 1);
-        List<Position> leftRightUpDownPositions2 = mazeService.getLeftRightUpDown(startPosition2);
+        List<Position> leftRightUpDownPositions2 = mazeChecker.getLeftRightUpDown(startPosition2);
         Position startPosition3 = maze.getPositionByXY(4, 6);
-        List<Position> leftRightUpDownPositions3 = mazeService.getLeftRightUpDown(startPosition3);
+        List<Position> leftRightUpDownPositions3 = mazeChecker.getLeftRightUpDown(startPosition3);
         Position startPosition4 = maze.getPositionByXY(3, 3);
-        List<Position> leftRightUpDownPositions4 = mazeService.getLeftRightUpDown(startPosition4);
+        List<Position> leftRightUpDownPositions4 = mazeChecker.getLeftRightUpDown(startPosition4);
         //then
         assertNull(leftRightUpDownPositions1.get(0));
         assertNull(leftRightUpDownPositions1.get(1));
@@ -91,5 +91,73 @@ class MazeCheckerTest {
         assertEquals(maze.getPositionByXY(4, 3), leftRightUpDownPositions4.get(1));
         assertEquals(maze.getPositionByXY(3, 2), leftRightUpDownPositions4.get(2));
         assertNull(leftRightUpDownPositions4.get(3));
+    }
+
+    @Test
+    void getNumberOfMoves() {
+        //given
+        Maze maze = new Maze();
+        maze.setMaxX(5);
+        maze.setMaxY(7);
+        maze.addPosition(new Position(0, 0, 0));
+        maze.addPosition(new Position(1, 0, 0));
+        maze.addPosition(new Position(2, 0, 0));
+        maze.addPosition(new Position(3, 0, 0));
+        maze.addPosition(new Position(4, 0, 0));
+        maze.addPosition(new Position(0, 1, 1));
+        maze.addPosition(new Position(1, 1, 1));
+        maze.addPosition(new Position(2, 1, 0));
+        maze.addPosition(new Position(3, 1, 0));
+        maze.addPosition(new Position(4, 1, 0));
+        maze.addPosition(new Position(0, 2, 0));
+        maze.addPosition(new Position(1, 2, 1));
+        maze.addPosition(new Position(2, 2, 1));
+        maze.addPosition(new Position(3, 2, 1));
+        maze.addPosition(new Position(4, 2, 0));
+        maze.addPosition(new Position(0, 3, 0));
+        maze.addPosition(new Position(1, 3, 0));
+        maze.addPosition(new Position(2, 3, 0));
+        maze.addPosition(new Position(3, 3, 1));
+        maze.addPosition(new Position(4, 3, 1));
+        maze.addPosition(new Position(0, 4, 0));
+        maze.addPosition(new Position(1, 4, 0));
+        maze.addPosition(new Position(2, 4, 0));
+        maze.addPosition(new Position(3, 4, 0));
+        maze.addPosition(new Position(4, 4, 1));
+        maze.addPosition(new Position(0, 5, 0));
+        maze.addPosition(new Position(1, 5, 0));
+        maze.addPosition(new Position(2, 5, 0));
+        maze.addPosition(new Position(3, 5, 0));
+        maze.addPosition(new Position(4, 5, 1));
+        maze.addPosition(new Position(0, 6, 0));
+        maze.addPosition(new Position(1, 6, 0));
+        maze.addPosition(new Position(2, 6, 1));
+        maze.addPosition(new Position(3, 6, 1));
+        maze.addPosition(new Position(4, 6, 1));
+        MazeChecker mazeChecker = new MazeChecker(maze);
+        //todo
+        /*
+        00000
+        11000
+        01110
+        00011
+        00001
+        00001
+        00111
+        */
+        //when
+        Position startPosition1 = maze.getPositionByXY(0, 0);
+        int result1 = mazeChecker.getNumberOfMoves(startPosition1);
+        Position startPosition2 = maze.getPositionByXY(0, 1);
+        int result2 = mazeChecker.getNumberOfMoves(startPosition2);
+        Position startPosition3 = maze.getPositionByXY(4, 6);
+        int result3 = mazeChecker.getNumberOfMoves(startPosition3);
+        Position startPosition4 = maze.getPositionByXY(3, 3);
+        int result4 = mazeChecker.getNumberOfMoves(startPosition4);
+        //then
+        assertEquals(1, result1);
+        assertEquals(1, result2);
+        assertEquals(2, result3);
+        assertEquals(2, result4);
     }
 }

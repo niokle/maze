@@ -10,6 +10,10 @@ import java.util.List;
 public class MazeChecker {
     private Maze maze;
 
+    public int getNumberOfMoves(Position currentPosition) {
+        return (int) (4 - getLeftRightUpDown(currentPosition).stream().filter(position -> position == null).count());
+    }
+
     public List<Position> getLeftRightUpDown(Position currentPosition) {
         List<Position> positions = new ArrayList<>();
         positions.add(getLeftPosition(currentPosition));

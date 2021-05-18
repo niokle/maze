@@ -23,6 +23,7 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation group: 'org.jgrapht', name: 'jgrapht-core', version: '1.5.1'
 }
 
 test {
