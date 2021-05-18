@@ -131,6 +131,8 @@ class MazeServiceTest {
         //when
         List<Path> paths1 = mazeService1.getPaths();
         List<Path> paths2 = mazeService2.getPaths();
+        System.out.println(paths1.get(0).getNumberOfTurns());
+        System.out.println(paths1.get(1).getNumberOfTurns());
         //then
         assertEquals(2, paths1.size());
         assertEquals(0, paths2.size());
