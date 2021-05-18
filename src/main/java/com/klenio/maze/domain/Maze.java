@@ -3,12 +3,15 @@ package com.klenio.maze.domain;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
+@Component
 public class Maze {
     private List<Position> positionList = new ArrayList<>();
     private int maxX;

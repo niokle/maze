@@ -5,7 +5,6 @@ import com.klenio.maze.domain.Path;
 import com.klenio.maze.domain.Position;
 import com.klenio.maze.function.MazeChecker;
 import org.jgrapht.alg.shortestpath.AllDirectedPaths;
-import org.jgrapht.alg.shortestpath.DijkstraShortestPath;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -26,6 +25,10 @@ public class MazeService {
     public MazeService(Maze maze) {
         this.maze = maze;
         mazeChecker = new MazeChecker(maze);
+    }
+
+    public int getSmallestNumberOfTurns() {
+        return getPaths().stream().min(Comparator.comparingInt(path -> path.getNumberOfTurns())).get().getNumberOfTurns();
     }
 
     public List<Path> getPaths() {
