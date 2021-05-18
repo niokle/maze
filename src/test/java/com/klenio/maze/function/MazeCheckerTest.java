@@ -3,9 +3,7 @@ package com.klenio.maze.function;
 import com.klenio.maze.domain.Maze;
 import com.klenio.maze.domain.Position;
 import org.junit.jupiter.api.Test;
-
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class MazeCheckerTest {
@@ -52,7 +50,6 @@ class MazeCheckerTest {
         maze.addPosition(new Position(3, 6, 1));
         maze.addPosition(new Position(4, 6, 1));
         MazeChecker mazeChecker = new MazeChecker(maze);
-        //todo
         /*
         00000
         11000
@@ -135,7 +132,6 @@ class MazeCheckerTest {
         maze.addPosition(new Position(3, 6, 1));
         maze.addPosition(new Position(4, 6, 1));
         MazeChecker mazeChecker = new MazeChecker(maze);
-        //todo
         /*
         00000
         11000

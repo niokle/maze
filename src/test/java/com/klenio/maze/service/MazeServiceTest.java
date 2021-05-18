@@ -3,10 +3,9 @@ package com.klenio.maze.service;
 import com.klenio.maze.domain.Maze;
 import com.klenio.maze.domain.Path;
 import com.klenio.maze.domain.Position;
+import com.klenio.maze.exception.IncorrectDataExeption;
 import org.junit.jupiter.api.Test;
-
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class MazeServiceTest {
@@ -137,7 +136,7 @@ class MazeServiceTest {
     }
 
     @Test
-    void getSmallestNumberOfTurns() {
+    void getSmallestNumberOfTurns() throws IncorrectDataExeption {
         //given
         Maze maze1 = new Maze();
         maze1.setMaxX(9);

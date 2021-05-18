@@ -4,7 +4,6 @@ import com.klenio.maze.domain.Maze;
 import com.klenio.maze.domain.Position;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;

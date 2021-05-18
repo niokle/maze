@@ -1,7 +1,7 @@
-package com.klenio.mazerest.mapper;
+package com.klenio.maze.mapper;
 
 import com.klenio.maze.domain.Maze;
-import com.klenio.maze.mapper.MazeMapper;
+import com.klenio.maze.exception.IncorrectDataExeption;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class MazeMapperTest {
 
     @Test
-    void mazeDtoToMaze() {
+    void mazeDtoToMaze() throws IncorrectDataExeption {
         //given
         MazeMapper mazeMapper = new MazeMapper();
         String mazeDto = "9,8\n" +
